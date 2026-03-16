@@ -1,0 +1,319 @@
+:root{
+  /* Base */
+  --bg: #89B1D6; /* FONDO REAL */
+  --bg-soft: #0f1a2e;
+
+  --card: #0f1a2e;
+  --card-soft: #13223d;
+
+  /* Text */
+  --text: #e8eefc;
+  --muted: rgba(232,238,252,0.65);
+  --line: rgba(232,238,252,0.12);
+
+  /* Accent */
+  --accent: #75A5D7;
+  --accent-soft: rgba(139,177,215,0.25);
+
+  --good:#5ce1a6;
+
+  --radius: 18px;
+  --shadow: 0 20px 55px rgba(0,0,0,0.45);
+}
+
+/* 🔥 FORZAR FONDO */
+html, body{
+  background: #89B1D6 !important;
+  min-height: 100%;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  min-height: 100vh;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--text);
+  background: #89B1D6 !important;
+}
+
+/* ---------------- APP ---------------- */
+.app{
+  max-width: 1150px;
+  margin: 28px auto;
+  padding: 0 16px 40px;
+  background: transparent;
+}
+
+/* ---------------- TOP BAR ---------------- */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom: 18px;
+}
+
+h1{
+  margin:0;
+  font-size: 22px;
+  letter-spacing:0.3px;
+}
+
+.sub{
+  margin:6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.topbar-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.pill{
+  border: 1px solid var(--line);
+  background: rgba(15,26,46,0.75);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* ---------------- CARDS ---------------- */
+.card{
+  background: linear-gradient(
+    180deg,
+    rgba(19,34,61,0.95),
+    rgba(15,26,46,0.95)
+  );
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 10px;
+}
+
+.card h2{
+  margin:0;
+  font-size: 16px;
+}
+
+/* ---------------- TEXT ---------------- */
+.muted{ color: var(--muted); }
+.tiny{ font-size: 12px; }
+
+/* ---------------- BUTTONS ---------------- */
+.btn{
+  border: 0;
+  background: linear-gradient(180deg, #8fb8e6, #6a9bd0);
+  color: #071423;
+  font-weight: 800;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor:pointer;
+}
+
+.btn:hover{ filter: brightness(1.05); }
+
+.btn.outline{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.btn.ghost{
+  background: transparent;
+  color: var(--text);
+}
+
+/* ---------------- FORMS ---------------- */
+label{
+  display:block;
+  font-size: 12px;
+  color: rgba(10, 18, 32, 0.75);   /* ✅ más oscuro, se lee */
+  margin-bottom: 6px;
+  font-weight: 600;               /* ✅ un poquito más fuerte */
+}
+
+input, textarea{
+  width:100%;
+  background: rgba(9,18,34,0.85);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline:none;
+}
+
+textarea{
+  resize: vertical;
+  min-height: 46px;
+}
+
+.field{ margin-top: 12px; }
+
+/* ---------------- BADGES ---------------- */
+.badge{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(9,18,34,0.6);
+}
+
+/* ---------------- QUOTE ---------------- */
+.quote-card{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin-bottom: 14px;
+}
+
+.quote-icon{
+  width:34px;
+  height:34px;
+  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: var(--accent-soft);
+}
+
+.quote-title{
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.quote{
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+/* ---------------- LAYOUT ---------------- */
+.layout{
+  display:grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 14px;
+}
+
+.stack{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+
+/* ---------------- MORNING / NIGHT ---------------- */
+.morning,
+.night{
+  border: 1px solid var(--accent);
+  background: linear-gradient(
+    180deg,
+    rgba(117,165,215,0.18),
+    rgba(15,26,46,0.85)
+  );
+}
+
+/* ---------------- GOALS ---------------- */
+.goals{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:10px;
+}
+
+/* ---------------- LOCK ---------------- */
+.lock{
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(232,238,252,0.25);
+  background: rgba(9,18,34,0.55);
+}
+
+.lock-title{ font-weight: 700; margin-bottom: 4px; }
+
+/* ---------------- CHECKS ---------------- */
+.checks{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.check{
+  display:grid;
+  grid-template-columns: 18px 1fr;
+  align-items:center;
+  gap: 10px;
+}
+
+/* ---------------- CALENDAR ---------------- */
+.calendar{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.day{
+  border-radius: 14px;
+  padding: 10px 0;
+  text-align:center;
+  border: 1px solid rgba(10,18,32,0.18);
+  background: rgba(255,255,255,0.18);  /* ✅ más claro */
+  color: rgba(10,18,32,0.85);          /* ✅ números oscuros */
+  font-size: 12px;
+  cursor:pointer;
+  font-weight: 700;                     /* ✅ se leen más */
+}
+
+.day.hasEntry{
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.day.selected{
+  outline: 3px solid var(--accent);
+  background: rgba(117,165,215,0.20);
+}
+
+/* ---------------- READ ONLY ---------------- */
+.readonly-item{
+  border: 1px solid var(--line);
+  background: rgba(9,18,34,0.65);
+  padding: 10px 12px;
+  border-radius: 14px;
+  white-space: pre-wrap;
+}
+/* Login: look más pro/creativo */
+.auth-card{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background:
+    radial-gradient(600px 300px at 20% 10%, rgba(255,255,255,0.18), transparent 60%),
+    radial-gradient(500px 260px at 80% 0%, rgba(117,165,215,0.25), transparent 55%),
+    radial-gradient(500px 260px at 10% 90%, rgba(15,26,46,0.55), transparent 60%);
+  filter: blur(6px);
+  pointer-events:none;
+}
+
+.auth-card > *{
+  position: relative;
+}

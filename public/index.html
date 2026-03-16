@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaan’s Journal</title>
+  <link rel="stylesheet" href="style.css?v=89b1d6" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#89B1D6" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=2" />
+  <link rel="icon" type="image/png" href="icons/icon-192.png?v=2" />
+</head>
+
+<body>
+  <div class="app">
+    <header class="topbar" id="topbar" style="display:none;">
+      <div>
+        <h1>Shaan’s Journal</h1>
+        <p class="sub">Morning clarity. Night reflection.</p>
+      </div>
+
+      <div class="topbar-right">
+        <div class="pill" id="datePill">—</div>
+        <div class="pill" id="streakPill">🔥 0-day streak</div>
+        <button type="button" class="btn ghost" id="logoutBtn" style="display:none;">Log out</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- AUTH -->
+      <section class="card auth-card" id="authCard">
+        <h2>Log in</h2>
+        <p class="muted">Use your email and password.</p>
+
+        <div class="grid2">
+          <div>
+            <label>Email</label>
+            <input id="email" type="email" placeholder="email@example.com" autocomplete="email" />
+          </div>
+          <div>
+            <label>Password</label>
+            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
+          </div>
+        </div>
+
+        <div class="row">
+          <button type="button" class="btn" id="loginBtn">Log in</button>
+          <button type="button" class="btn outline" id="signupBtn">Create account</button>
+        </div>
+
+        <p class="tiny muted" id="authMsg"></p>
+      </section>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" style="display:none;">
+        <section class="card quote-card">
+          <div class="quote-icon">💬</div>
+          <div>
+            <div class="quote-title">Daily message</div>
+            <div class="quote" id="quoteText">—</div>
+          </div>
+        </section>
+
+        <section class="layout">
+          <!-- LEFT: JOURNALS -->
+          <div class="stack">
+            <!-- MORNING -->
+            <section class="card morning">
+              <div class="card-head">
+                <h2>Morning Journal</h2>
+                <span class="badge" id="morningStatus">Not completed</span>
+              </div>
+
+              <div class="field">
+                <label>How do you feel this morning?</label>
+                <textarea id="m1" rows="2"></textarea>
+              </div>
+
+              <div class="field">
+                <label>What is something small you're looking forward to today?</label>
+                <textarea id="m2" rows="2"></textarea>
+              </div>
+
+              <div class="field">
+                <label>What are your 3 main goals for today?</label>
+                <div class="goals">
+                  <input id="g1" placeholder="Goal 1" />
+                  <input id="g2" placeholder="Goal 2" />
+                  <input id="g3" placeholder="Goal 3" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label>What do you want to keep in mind throughout the day?</label>
+                <textarea id="m4" rows="2"></textarea>
+              </div>
+
+              <div class="field">
+                <label>Any worries or thoughts you want to release?</label>
+                <textarea id="m5" rows="2"></textarea>
+              </div>
+
+              <div class="row">
+                <button type="button" class="btn" id="saveMorningBtn">Save Morning</button>
+                <span class="tiny muted" id="morningMsg"></span>
+              </div>
+            </section>
+
+            <!-- NIGHT -->
+            <section class="card night">
+              <div class="card-head">
+                <h2>Night Reflection</h2>
+                <span class="badge" id="nightStatus">Locked</span>
+              </div>
+
+              <div class="lock" id="nightLock">
+                <div class="lock-title">Night Reflection is locked</div>
+                <div class="muted">Complete Morning Journal first to unlock it.</div>
+              </div>
+
+              <div id="nightBody" style="display:none;">
+                <div class="field">
+                  <label>Overall, how did the day make you feel?</label>
+                  <textarea id="n1" rows="2"></textarea>
+                </div>
+
+                <div class="field">
+                  <label>What was one good thing that happened today?</label>
+                  <textarea id="n2" rows="2"></textarea>
+                </div>
+
+                <div class="field">
+                  <label>Did something challenge you today? What and how did you respond?</label>
+                  <textarea id="n3" rows="2"></textarea>
+                </div>
+
+              
+
+                <!-- ✅ Removed: What are you grateful for right now? -->
+
+                <div class="field">
+                  <label>What's something you want to carry into tomorrow?</label>
+                  <textarea id="n6" rows="2"></textarea>
+                </div>
+
+                <div class="field">
+                  <label>Goals completed</label>
+                  <div class="checks">
+                    <label class="check"><input type="checkbox" id="c1" /> <span id="cg1">Goal 1</span></label>
+                    <label class="check"><input type="checkbox" id="c2" /> <span id="cg2">Goal 2</span></label>
+                    <label class="check"><input type="checkbox" id="c3" /> <span id="cg3">Goal 3</span></label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <button type="button" class="btn" id="saveNightBtn">Save Night</button>
+                  <span class="tiny muted" id="nightMsg"></span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- RIGHT: CALENDAR / HISTORY -->
+          <aside class="card history">
+            <div class="card-head">
+              <h2>History</h2>
+              <span class="muted tiny">Click a day to view (read-only)</span>
+            </div>
+
+            <div class="month-row">
+              <button type="button" class="btn ghost" id="prevMonthBtn">←</button>
+              <div class="month-title" id="monthTitle">—</div>
+              <button type="button" class="btn ghost" id="nextMonthBtn">→</button>
+            </div>
+
+            <div class="calendar" id="calendar"></div>
+
+            <div class="divider"></div>
+
+            <div id="viewTitle" class="view-title">Select a day</div>
+            <div class="muted tiny" id="viewSubtitle">—</div>
+
+            <div class="readonly" id="readonlyView">
+              <div class="readonly-section">
+                <div class="readonly-head">Morning</div>
+                <div class="readonly-item" id="roMorning">—</div>
+              </div>
+              <div class="readonly-section">
+                <div class="readonly-head">Night</div>
+                <div class="readonly-item" id="roNight">—</div>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
